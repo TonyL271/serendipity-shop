@@ -21,7 +21,6 @@ const Navbar = () => {
   return (
     <Box
       sx={{
-        position: 'fixed',
         display: 'flex',
         width: '100vw',
         height: '80px',
