@@ -9,6 +9,7 @@ const shop = ({ products }) => {
       height: '100vh',
       width: '100vw',
       bgcolor: 'primary.dark',
+
     }}>
       <Box sx={{
         width: '80%',
@@ -32,14 +33,6 @@ const shop = ({ products }) => {
       </Box>
     </Box>
   )
-}
-
-export async function getInitialProps() {
-  return {
-    props: {
-      products: []
-    }
-  }
 }
 
 export async function getStaticProps() {
