@@ -45,9 +45,9 @@ const Navbar = () => {
             mobile: 'inline',
             laptop: 'none',
           },
-          position:'absolute',
+          position: 'absolute',
           left: '2rem',
-          top:'1.5rem',
+          top: '1.5rem',
           zIndex: 2,
         }}
         onClick={() => setOpenHamburger(!openHamburger)}
@@ -96,11 +96,11 @@ const Navbar = () => {
           },
           zIndex: 2,
         }}>
-        <NavLink href="/" title="Home" />
-        <NavLink href="/shop" title="Shop" />
-        <NavLink href="/about" title="About" />
+        <NavLink setOpenHamburger={setOpenHamburger} href="/" title="Home" />
+        <NavLink setOpenHamburger={setOpenHamburger} href="/shop" title="Shop" />
+        <NavLink setOpenHamburger={setOpenHamburger} href="/about" title="About" />
       </Box>
-      <Box component="span" sx={{ position: 'absolute', right: '3rem',top:'1.5rem' }}>
+      <Box component="span" sx={{ position: 'absolute', right: '3rem', top: '1.5rem' }}>
         <FontAwesomeIcon icon={faCartShopping} size="2x" />
       </Box>
     </Box >

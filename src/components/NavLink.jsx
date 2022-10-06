@@ -1,7 +1,12 @@
 import Link from 'next/link'
 import { Box } from '@mui/material'
 
-const NavLink = ({ href, title }) => {
+const NavLink = ({ href, title,setOpenHamburger }) => {
+
+    const onNavClick = () => {
+        setOpenHamburger(false)
+    }
+
     return (
         <Link href={href} passHref>
             <Box
@@ -16,6 +21,7 @@ const NavLink = ({ href, title }) => {
                         laptop: 0,
                     }
                 }}
+                onClick={onNavClick}
             >
                 {title}
             </Box>
