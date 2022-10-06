@@ -2,6 +2,7 @@ import { useRouter } from 'next/router'
 import client, { urlFor } from '../../lib/client'
 import { Box, Typography, Button, Select, MenuItem, FormControl, Rating } from '@mui/material'
 import { useState } from 'react'
+import { ImagePreview } from '../../src/components'
 
 const Post = ({ product }) => {
     const router = useRouter()
@@ -20,15 +21,7 @@ const Post = ({ product }) => {
                     justifyContent: 'space-between',
                 }}>
                 <Box sx={{ margin: '1rem' }}>
-                    <Box
-                        component="img"
-                        src={urlFor(product.defaultProductVariant.images[0])}
-                        sx={{
-                            position: 'relative',
-                            width: '25vw',
-                            gridColumn: '1/2',
-                        }}
-                    />
+                    <ImagePreview product={product}/>
                 </Box>
                 <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
                     <Box sx={{ display: 'flex', width: '100%', margin: '1rem', }}>
