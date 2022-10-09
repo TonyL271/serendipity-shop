@@ -54,29 +54,35 @@ const Navbar = () => {
       >
         <FontAwesomeIcon icon={faBars} size="2x" />
       </Box>
-      <Box component="h1"
-        sx={{
-          textAlign: 'center',
-          color: 'white',
-          fontSize: '2.8rem',
-          margin: 0,
-          marginLeft: {
-            mobile: '0',
-            laptop: '4rem'
-          },
-          width: {
-            mobile: '100%',
-            laptop: 'auto',
-          },
-          position: {
-            mobile: 'absolute',
-            laptop: 'relative',
-          },
-          top: {
-            mobile: '0.4rem',
-            laptop: 'auto',
-          }
-        }}>Serendipity</Box>
+      <Link href="/" passHref>
+        <Box component="a"
+          sx={{
+            textAlign: 'center',
+            color: 'white',
+            fontSize: '2.8rem',
+            margin: 0,
+            fontWeight: '600',
+            textDecoration: 'none',
+            marginLeft: {
+              mobile: '0',
+              laptop: '4rem'
+            },
+            width: {
+              mobile: '100%',
+              laptop: 'auto',
+            },
+            position: {
+              mobile: 'absolute',
+              laptop: 'relative',
+            },
+            top: {
+              mobile: '0.4rem',
+              laptop: 'auto',
+            },
+          }}>
+          Serendipity
+        </Box>
+      </Link>
       <Box
         sx={{
           display: {
@@ -96,9 +102,10 @@ const Navbar = () => {
           },
           zIndex: 2,
         }}>
-        <NavLink setOpenHamburger={setOpenHamburger} href="/" title="Home" />
         <NavLink setOpenHamburger={setOpenHamburger} href="/shop" title="Shop" />
+        <NavLink setOpenHamburger={setOpenHamburger} href="/shipping" title="Shipping" />
         <NavLink setOpenHamburger={setOpenHamburger} href="/about" title="About" />
+        <NavLink setOpenHamburger={setOpenHamburger} href="/login" title="Login" />
       </Box>
       <Box component="span" sx={{ position: 'absolute', right: '3rem', top: '1.5rem' }}>
         <FontAwesomeIcon icon={faCartShopping} size="2x" />

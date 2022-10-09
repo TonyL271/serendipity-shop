@@ -18,11 +18,6 @@ export default {
       },
     },
     {
-      title: 'Default variant',
-      name: 'defaultProductVariant',
-      type: 'productVariant',
-    },
-    {
       title: 'Price',
       name: 'price',
       type: 'number',

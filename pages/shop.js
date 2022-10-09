@@ -12,7 +12,7 @@ const shop = ({ products }) => {
 
     }}>
       <Box sx={{
-        width: '80%',
+        width: '50%',
         margin: '0 auto',
         minHeight: '100vh',
         backgroundColor: 'white',

@@ -10,10 +10,10 @@ const ProductPreview = ({ product }) => {
         <>
             <Box
                 component="img"
-                src={urlFor(product.variants[showImg].images[0])}
+                src={urlFor(product.variants[hover === -1 ? showImg : hover].images[0])}
                 sx={{
                     position: 'relative',
-                    width: '25vw',
+                    width: '500px',
                     gridColumn: '1/2',
                 }}
             />
