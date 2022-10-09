@@ -1,52 +1,62 @@
-import { Box } from "@mui/material"
+import { Box, Typography } from "@mui/material"
 import { urlFor } from '../../lib/client'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ProductPreview = ({ product }) => {
-    const [hover, setHover] = useState(-1);
-    const [showImg, setShowImage] = useState(0);
+    const [hoverImg, setHoverImg] = useState(-1);
+    const [selectedImg, setSelectImage] = useState(0);
+    const [showImg, setShowImg] = useState(0);
+
+    useEffect(() => {
+        setShowImg(hoverImg === -1 ? selectedImg : hoverImg)
+    })
 
     return (
         <>
-            <Box
-                component="img"
-                src={urlFor(product.variants[hover === -1 ? showImg : hover].images[0])}
-                sx={{
-                    position: 'relative',
-                    width: '500px',
-                    gridColumn: '1/2',
-                }}
-            />
+            <Typography variant="h4" sx={{ gridColumn: '1/3', }}>{product.variants[hoverImg === -1 ? selectedImg : hoverImg].title}</Typography>
             <Box>
-                {
-                    product.variants.map((variant, index) => (
-                        <Box
-                            key={index}
-                            component="img"
-                            src={urlFor(variant.images[0])}
-                            onMouseEnter={(e) => {
-                                setHover(index)
-                            }}
-                            onMouseLeave={(e) => {
-                                setHover(-1)
-                            }}
-                            onClick={(e) => {
-                                setShowImage(index)
-                            }}
-                            sx={{
-                                width: '5vw',
-                                opacity: 0.5,
-                                opacity: showImg === index && hover === -1 ? 1 : 0.5,
-                                '&:hover': {
-                                    opacity: 1,
-                                    border: '3px solid',
-                                    borderColor: 'primary.main',
-                                }
+                <Box
+                    component="img"
+                    src={urlFor(product.variants[hoverImg === -1 ? selectedImg : hoverImg].images[0])}
+                    sx={{
+                        position: 'relative',
+                        width: '500px',
+                        gridColumn: '1/2',
+                        pt: '1.5rem',
+                        mb: '1.5rem',
+                    }}
+                />
+                <Box>
+                    {
+                        product.variants.map((variant, index) => (
+                            <Box
+                                key={index}
+                                component="img"
+                                src={urlFor(variant.images[0])}
+                                onMouseEnter={(e) => {
+                                    setHoverImg(index)
+                                }}
+                                onMouseLeave={(e) => {
+                                    setHoverImg(-1)
+                                }}
+                                onDragStart={(e) => {
+                                    e.preventDefault()
+                                }}
+                                onClick={(e) => {
+                                    setSelectImage(index)
+                                }}
+                                sx={{
+                                    width: '5vw',
+                                    opacity: 0.5,
+                                    opacity: index === showImg ? 1 : 0.5,
+                                    border: index === showImg ? '3px solid' : 'none',
+                                    borderColor: index === showImg ? 'primary.main' : 'none',
 
-                            }}
-                        />
-                    ))
-                }
+                                }}
+                            />
+                        ))
+                    }
+                </Box>
             </Box>
         </>
     )

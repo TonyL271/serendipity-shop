@@ -1,12 +1,13 @@
 import React from 'react'
 import { Box } from '@mui/material'
 import client from '../lib/client'
+import { testClient } from '../lib/client'
 import ProductCard from '../src/components/ProductCard'
 
-const shop = ({ products }) => {
+const shop = ({ products, testProducts }) => {
   return (
     <Box sx={{
-      height: '100vh',
+      minHeight: '100vh',
       width: '100vw',
       bgcolor: 'primary.dark',
 
@@ -29,6 +30,10 @@ const shop = ({ products }) => {
           {products.map(product => (
             <ProductCard key={product._id} product={product} />
           ))}
+          {Array(20 - products.length).fill(0).map((num, index) => (
+            <ProductCard key={index} product={testProducts[0]} />
+          ))}
+
         </Box>
       </Box>
     </Box>
@@ -37,10 +42,12 @@ const shop = ({ products }) => {
 
 export async function getStaticProps() {
   const products = await client.fetch(`*[_type == "product"]`);
+  const testProducts = await client.fetch(`*[_type == "testing"]`);
 
   return {
     props: {
-      products
+      products,
+      testProducts
     }
   };
 }

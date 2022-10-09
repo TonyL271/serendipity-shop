@@ -9,6 +9,7 @@ import category from './category'
 import product from './product'
 import vendor from './vendor'
 import productVariant from './productVariant'
+import testing from './testing'
 
 import localeString from './locale/String'
 import localeText from './locale/Text'
@@ -25,6 +26,7 @@ export default createSchema({
     // in the studio.
     product,
     category,
+    testing,
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,

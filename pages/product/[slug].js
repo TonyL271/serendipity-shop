@@ -3,6 +3,8 @@ import client, { urlFor } from '../../lib/client'
 import { Box, Typography, Button, Select, MenuItem, FormControl, Rating } from '@mui/material'
 import { useState } from 'react'
 import { ImagePreview } from '../../src/components'
+import Icon from '@mui/material'
+import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 const Post = ({ product }) => {
     const router = useRouter()
@@ -16,15 +18,15 @@ const Post = ({ product }) => {
             <Box
                 sx={{
                     width: '50%',
-                    display: 'flex',
+                    minWidth: '930px',
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(2, 1fr)',
                     mx: 'auto',
                     justifyContent: 'space-between',
                 }}>
-                <Box sx={{ margin: '1rem' }}>
-                    <ImagePreview product={product}/>
-                </Box>
+                <ImagePreview product={product} />
                 <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-                    <Box sx={{ display: 'flex', width: '100%', margin: '1rem', }}>
+                    <Box sx={{ display: 'flex', width: '100%', padding: '1rem', }}>
                         <Box
                             sx={{
                                 display: 'flex',
@@ -56,7 +58,7 @@ const Post = ({ product }) => {
                                         ))}
                                     </Select>
                                 </Box>
-                                <Button id="add-to-cart" sx={{ bgcolor: 'primary.main', color: 'primary.light', width: '15rem' }}>Add to Cart</Button>
+                                <Button id="add-to-cart" sx={{ bgcolor: 'primary.main', color: 'primary.light', width: '15rem', }}>Add to Cart</Button>
                             </FormControl>
                         </Box>
                     </Box>
@@ -64,7 +66,19 @@ const Post = ({ product }) => {
                         <Typography component="legend" align="left" width="100%">No rating given</Typography>
                         <Rating name="no-value" value={null} align="left" sx={{ width: '100%', }} />
                         <Typography variant="h4" mb="1rem">Description</Typography>
-                        <Typography variant="p">{product.body}</Typography>
+                        <Typography variant="body1" sx={{ marginBottom: "2rem" }}>{product.body}</Typography>
+                        <Box color="#ce2427">
+                            <Typography variant="h4" mb="1rem" display="flex" alignItems="center">
+                                <WarningAmberIcon sx={{ width: "2rem", height: "2rem" }} />
+                                Warning!!!
+                            </Typography>
+                            <Typography variant="h6" mb="1rem">This is like a gumball machine, you will one of any three following items by random chance.</Typography>
+                            <ol>
+                                {product.variants.map((product, index) => (
+                                    <li key={index}>{product.title}</li>
+                                ))}
+                            </ol>
+                        </Box>
                     </Box>
                 </Box>
             </Box>
@@ -74,7 +88,7 @@ const Post = ({ product }) => {
 
 export async function getStaticPaths() {
     const products = await client.fetch(`*[_type == "product"]`)
-    const paths = products.map(product => {
+    let paths = products.map(product => {
         return { params: { slug: product.slug.current } }
     })
 
@@ -87,6 +101,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
     const products = await client.fetch(`*[_type == "product"]`)
     const product = products.find(product => product.slug.current === slug)
+
     return {
         props: { product },
     }

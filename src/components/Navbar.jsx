@@ -1,7 +1,6 @@
 import React from 'react'
 import { Box, Button } from '@mui/material'
 import Link from 'next/link'
-import { styled } from '@mui/system'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCartShopping, faBars } from '@fortawesome/free-solid-svg-icons'
 import { NavLink } from '../components/'
@@ -10,13 +9,6 @@ import { NavLink } from '../components/'
 
 const Navbar = () => {
   const [openHamburger, setOpenHamburger] = React.useState(false)
-
-  const StyledAnchor = styled('a')(({ theme }) => ({
-    color: theme.palette.primary.dark,
-    textDecoration: 'none',
-    fontSize: '2.5rem',
-    marginRight: '3rem'
-  }))
 
   return (
     <Box
