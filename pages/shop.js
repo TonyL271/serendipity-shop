@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Box } from '@mui/material'
 import client from '../lib/client'
-import { testClient } from '../lib/client'
 import ProductCard from '../src/components/ProductCard'
 
 const shop = ({ products, testProducts }) => {
+
   return (
     <Box sx={{
       minHeight: '100vh',
@@ -13,7 +13,7 @@ const shop = ({ products, testProducts }) => {
 
     }}>
       <Box sx={{
-        width: '50%',
+        width: '60%',
         margin: '0 auto',
         minHeight: '100vh',
         backgroundColor: 'white',
@@ -23,8 +23,8 @@ const shop = ({ products, testProducts }) => {
           sx={{
             display: 'grid',
             gridTemplateColumns: 'repeat(4, 1fr)',
-            gridGap: '2rem',
-            padding: '2rem',
+            gridGap: '3rem',
+            padding: '3rem',
           }}
         >
           {products.map(product => (
