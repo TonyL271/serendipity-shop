@@ -20,7 +20,7 @@ const ProductPreview = ({ product }) => {
                     src={urlFor(product.variants[hoverImg === -1 ? selectedImg : hoverImg].images[0])}
                     sx={{
                         position: 'relative',
-                        width: { mobile: '100vw', tablet: '500px' },
+                        width: { mobile: '100%', laptop: '500px' },
                         gridColumn: '1/2',
                         pt: '1.5rem',
                         mb: '1.5rem',

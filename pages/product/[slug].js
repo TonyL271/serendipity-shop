@@ -2,8 +2,7 @@ import { useRouter } from 'next/router'
 import client, { urlFor } from '../../lib/client'
 import { Box, Typography, Button, Select, MenuItem, FormControl, Rating } from '@mui/material'
 import { useState } from 'react'
-import { ImagePreview} from '../../src/components'
-import Icon from '@mui/material'
+import { ImagePreview, ProductReview } from '../../src/components'
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 const Post = ({ product }) => {
@@ -17,8 +16,8 @@ const Post = ({ product }) => {
             <Typography py="1rem" variant="h2" align='center'>{product.title}</Typography>
             <Box
                 sx={{
-                    width: '50%',
-                    minWidth: '930px',
+                    width: {mobile:'100%',laptop:'80%'},
+                    maxWidth:'1200px',
                     display: 'grid',
                     gridTemplateColumns: { mobile: '1fr', laptop: '1fr 1fr' },
                     mx: 'auto',
@@ -82,6 +81,7 @@ const Post = ({ product }) => {
                         </Box>
                     </Box>
                 </Box>
+                <ProductReview product={product} />
             </Box>
         </Box>
     )
