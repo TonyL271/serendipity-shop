@@ -11,7 +11,7 @@ const Post = ({ product }) => {
     const [quantity, setQuantity] = useState(1)
 
     return (
-        <Box sx={{ width: '100vw', minHeight: '100vh', bgcolor: '#ecf8fc', }}>
+        <Box sx={{ width: '100vw', minHeight: '100vh', bgcolor: 'primary.background', }}>
             <Box sx={{ display: { mobile: 'box', laptop: 'none' }, width: '100vw', height: '80px', }} />
             <Typography py="1rem" variant="h2" align='center'>{product.title}</Typography>
             <Box

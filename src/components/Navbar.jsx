@@ -95,9 +95,9 @@ const Navbar = () => {
           zIndex: 2,
         }}>
         <NavLink setOpenHamburger={setOpenHamburger} href="/shop" title="Shop" />
-        <NavLink setOpenHamburger={setOpenHamburger} href="/shipping" title="Shipping" />
         <NavLink setOpenHamburger={setOpenHamburger} href="/about" title="About" />
         <NavLink setOpenHamburger={setOpenHamburger} href="/login" title="Login" />
+        <NavLink setOpenHamburger={setOpenHamburger} href="/contact-us" title="Contact Us" />
       </Box>
       <Box component="span" sx={{ position: 'absolute', right: '3rem', top: '1.5rem' }}>
         <FontAwesomeIcon icon={faCartShopping} size="2x" />
