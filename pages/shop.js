@@ -22,7 +22,7 @@ const shop = ({ products, testProducts }) => {
           className="products"
           sx={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr));',
             gridGap: '3rem',
             padding: '3rem',
           }}

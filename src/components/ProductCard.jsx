@@ -41,8 +41,8 @@ const ProductCard = ({ product: { title, price, slug, variants } }) => {
                 display: 'grid',
                 alignItems: 'center',
                 justifyContent: 'center',
-                transform: hovered ? 'scale(1.1)' : 'scale(1)',
-                transition: 'transform 0.3s ease-in-out',
+                transform: hovered ? 'scale(1.15)' : 'scale(1)',
+                transition: 'transform 0.2s ease-in-out',
 
             }}>
             <Link href={slug.current === "coming-soon" ? '' : `/product/${encodeURIComponent(slug.current)}`}>

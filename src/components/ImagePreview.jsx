@@ -12,15 +12,15 @@ const ProductPreview = ({ product }) => {
     })
 
     return (
-        <>
-            <Typography variant="h4" sx={{ gridColumn: '1/3', }}>{product.variants[hoverImg === -1 ? selectedImg : hoverImg].title}</Typography>
+        <Box sx={{}} >
+            <Typography variant="h4" sx={{ gridColumn: '1/-1', }}>{product.variants[hoverImg === -1 ? selectedImg : hoverImg].title}</Typography>
             <Box>
                 <Box
                     component="img"
                     src={urlFor(product.variants[hoverImg === -1 ? selectedImg : hoverImg].images[0])}
                     sx={{
                         position: 'relative',
-                        width: '500px',
+                        width: { mobile: '100vw', tablet: '500px' },
                         gridColumn: '1/2',
                         pt: '1.5rem',
                         mb: '1.5rem',
@@ -46,7 +46,7 @@ const ProductPreview = ({ product }) => {
                                     setSelectImage(index)
                                 }}
                                 sx={{
-                                    width: '5vw',
+                                    width: {mobile:'20vw',tablet:'15vw',laptop:'12vw',desktop:'6vw'},
                                     opacity: 0.5,
                                     opacity: index === showImg ? 1 : 0.5,
                                     border: index === showImg ? '3px solid' : 'none',
@@ -58,7 +58,7 @@ const ProductPreview = ({ product }) => {
                     }
                 </Box>
             </Box>
-        </>
+        </Box >
     )
 }
 export default ProductPreview

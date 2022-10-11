@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import client, { urlFor } from '../../lib/client'
 import { Box, Typography, Button, Select, MenuItem, FormControl, Rating } from '@mui/material'
 import { useState } from 'react'
-import { ImagePreview } from '../../src/components'
+import { ImagePreview} from '../../src/components'
 import Icon from '@mui/material'
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
@@ -12,7 +12,7 @@ const Post = ({ product }) => {
     const [quantity, setQuantity] = useState(1)
 
     return (
-        <Box sx={{ width: '100vw', height: '100vh', bgcolor: '#ecf8fc', }}>
+        <Box sx={{ width: '100vw', minHeight: '100vh', bgcolor: '#ecf8fc', }}>
             <Box sx={{ display: { mobile: 'box', laptop: 'none' }, width: '100vw', height: '80px', }} />
             <Typography py="1rem" variant="h2" align='center'>{product.title}</Typography>
             <Box
@@ -20,13 +20,14 @@ const Post = ({ product }) => {
                     width: '50%',
                     minWidth: '930px',
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(2, 1fr)',
+                    gridTemplateColumns: { mobile: '1fr', laptop: '1fr 1fr' },
                     mx: 'auto',
                     justifyContent: 'space-between',
+                    gridGap: '3rem',
                 }}>
                 <ImagePreview product={product} />
                 <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column' }}>
-                    <Box sx={{ display: 'flex', width: '100%', padding: '1rem', }}>
+                    <Box sx={{ display: 'flex', width: { mobile: '50%', laptop: '100%' }, padding: '1rem', flexDirection: { mobile: 'column', laptop: 'row' } }}>
                         <Box
                             sx={{
                                 display: 'flex',
@@ -43,7 +44,7 @@ const Post = ({ product }) => {
                             <Typography variant="p" width="100%" align='left' color='rgba(52, 201, 235,1)' fontSize="1.0rem" >Free shipping over $50</Typography>
                         </Box>
                         <Box width='100%'>
-                            <FormControl>
+                            <FormControl sx={{ display: 'flex', margin: 'auto', alignItems: 'center' }}>
                                 <Box display="flex" width="50%" alignItems="center" justifyContent="space-between" marginBottom="2rem" mx="auto" >
                                     <Typography flexShrink="1" marginRight="1rem">qty:</Typography>
                                     <Select
