@@ -28,6 +28,7 @@ const Navbar = () => {
         alignItems: 'center',
         justifyContent: {
           mobile: 'center',
+          tablet: 'center',
           laptop: 'start'
         },
       }}>
@@ -48,7 +49,7 @@ const Navbar = () => {
       </Box>
       <Link href="/" passHref>
         <Box component="a"
-          sx={{
+          sx={(theme)=>({
             textAlign: 'center',
             color: 'white',
             fontSize: '2.8rem',
@@ -71,7 +72,12 @@ const Navbar = () => {
               mobile: '0.4rem',
               laptop: 'auto',
             },
-          }}>
+            [theme.breakpoints.down('tablet')]: {
+              fontSize: '2.0rem',
+              top: '1.0rem',
+            }
+
+          })}>
           Serendipity
         </Box>
       </Link>
