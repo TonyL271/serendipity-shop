@@ -7,7 +7,7 @@ export default function Home() {
     <Box
       sx={{
         pt: '100px',
-        height: '100vh',
+        height: 'calc(100vh - 80px)',
         width: '100vw',
         bgcolor: 'primary.dark'
       }}>
@@ -15,7 +15,7 @@ export default function Home() {
         <Box
           component="img"
           src="/box.png"
-          sx={{ mb: '1rem', height: '40vh',}} />
+          sx={{ mb: '1rem', height: '40vh', }} />
         <Typography component="h3" variant="h3" color='secondary.main' fontSize={'3vw'} textAlign='center' marginBottom='4rem'>
           Life is random, so why not embrace it, <br /> and focus on the things that truly matter?
         </Typography>
@@ -31,9 +31,9 @@ export default function Home() {
             justifyContent: 'center',
             alignItems: 'center',
             '&:hover': {
-              opacity:'0.8',
-              color:'white',
-              backgroundColor:'black'
+              opacity: '0.8',
+              color: 'white',
+              backgroundColor: 'black'
             }
           }}>
           <Box component="img" src="/gumball.png" sx={{ position: 'absolute', maxHeight: '6rem', height: '70%', left: '1rem' }} />

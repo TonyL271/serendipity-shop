@@ -4,15 +4,15 @@ const about = () => {
     return (
         <Box sx={{
             width: '100vw',
-            height: 'calc(100vh - 80px)',
+            minHeight: 'calc(100vh - 80px)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            bgcolor: 'primary.background',
         }}>
             <Box
                 sx={{
                     width: '60%',
+                    height: '100%',
                     mx: 'auto',
                     display: 'flex',
                     alignItems: 'center',

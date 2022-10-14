@@ -7,7 +7,7 @@ const shop = ({ products, testProducts }) => {
 
   return (
     <Box sx={{
-      minHeight: '100vh',
+      minHeight: 'calc(100vh- 80px)',
       width: '100vw',
       bgcolor: 'primary.dark',
 

@@ -20,7 +20,6 @@ const Navbar = () => {
 
   return (
     <Box>
-
       <Box
         sx={{
           position: {
@@ -29,7 +28,7 @@ const Navbar = () => {
           },
           display: 'flex',
           width: '100vw',
-          zIndex: 1,
+          zIndex: 2,
           height: {
             mobile: openHamburger ? '100vh' : '80px',
             laptop: '80px'
@@ -51,7 +50,7 @@ const Navbar = () => {
             position: 'absolute',
             left: '2rem',
             top: '1.5rem',
-            zIndex: 2,
+            zIndex: 3,
           }}
           onClick={() => setOpenHamburger(!openHamburger)}
         >
@@ -108,7 +107,7 @@ const Navbar = () => {
               mobile: 'column',
               laptop: 'row',
             },
-            zIndex: 2,
+            zIndex: 3,
           }}>
           <NavLink setOpenHamburger={setOpenHamburger} href="/shop" title="Shop" />
           <NavLink setOpenHamburger={setOpenHamburger} href="/about" title="About" />
@@ -129,7 +128,7 @@ const Navbar = () => {
             right: '-0.25rem',
             borderRadius: '100%',
             backgroundColor: 'rgba(255,255,255,0.9)',
-            zIndex: 2,
+            zIndex: 3,
             content: !user ? "''" : `\'${cartLength}\'`
           }
         }}
@@ -139,12 +138,13 @@ const Navbar = () => {
         </Box>
       </Box >
       <Box
+        className="look"
         sx={{
-          display: { tablet: "none" },
+          display: { laptop: "none" },
+          position: 'relative',
           width: '100vw',
           height: '80px',
         }} >
-
       </Box>
     </Box >
   )

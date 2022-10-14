@@ -11,11 +11,10 @@ const login = () => {
   return (
     <Box sx={{
       width: '100vw',
-      height: '100vh',
+      minHeight: 'calc(100vh - 80px)',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      bgcolor: 'primary.background',
     }}>
       <Box
         sx={{
@@ -26,6 +25,7 @@ const login = () => {
           alignItems: 'center',
           justifyContent: 'center',
           flexDirection: 'column',
+          bgcolor: 'rgba(118, 230, 213,0.15)',
         }}>
         <FormControl>
           <Typography component="legend" width="100%" textAlign="left" marginBottom="1rem">Login</Typography>
