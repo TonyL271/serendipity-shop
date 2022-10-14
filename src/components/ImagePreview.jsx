@@ -9,7 +9,7 @@ const ProductPreview = ({ product }) => {
 
     useEffect(() => {
         setShowImg(hoverImg === -1 ? selectedImg : hoverImg)
-    })
+    }, [hoverImg])
 
     return (
         <Box sx={{}} >
@@ -46,7 +46,7 @@ const ProductPreview = ({ product }) => {
                                     setSelectImage(index)
                                 }}
                                 sx={{
-                                    width: {mobile:'20vw',tablet:'15vw',laptop:'12vw',desktop:'6vw'},
+                                    width: { mobile: '20vw', tablet: '15vw', laptop: '12vw', desktop: '6vw' },
                                     opacity: 0.5,
                                     opacity: index === showImg ? 1 : 0.5,
                                     border: index === showImg ? '3px solid' : 'none',

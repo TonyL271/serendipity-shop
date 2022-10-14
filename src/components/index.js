@@ -5,3 +5,5 @@ export {default as ProductCard} from './ProductCard';
 export {default as NavLink} from './NavLink';
 export {default as ImagePreview} from './ImagePreview';
 export {default as ProductReview} from './ProductReview';
+export {default as Cart} from './Cart';
+export {default as Checkout} from './Checkout';

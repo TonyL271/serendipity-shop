@@ -1,8 +1,10 @@
-import React from 'react'
+import { Box,Typography } from "@mui/material"
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <Box>
+      <Typography>Design and built by Tony Liang</Typography>
+    </Box>
   )
 }
 
