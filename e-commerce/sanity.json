@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "e-commerce"
-  },
   "api": {
     "projectId": "xospdamm",
     "dataset": "production"
+  },
+  "project": {
+    "name": "e-commerce"
   },
   "plugins": [
     "@sanity/base",

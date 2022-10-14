@@ -2,15 +2,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Box, Button, Typography } from '@mui/material'
 import { urlFor } from '../../lib/client'
 import Link from 'next/link'
-import UserContext from '../UserContext'
+import {AddToCartButton} from './'
 
 const ProductCard = ({ product }) => {
 
     const [showIndex, setShowIndex] = useState(0)
     const [intervalId, setIntervalId] = useState(null)
     const [hovered, setHovered] = useState(false)
-    const { user, saveUser } = useContext(UserContext)
-    const context = useContext(UserContext)
 
     useEffect(() => {
         if (hovered) {
@@ -57,39 +55,7 @@ const ProductCard = ({ product }) => {
                     }}
                 />
             </Link>
-            <Button
-                sx={{
-                    bgcolor: 'primary.main',
-                    color: 'primary.dark',
-                    width: '100%',
-                    margin: 'auto',
-                    borderRadius: '0',
-                    '&:hover': {
-                        bgcolor: 'primary.dark',
-                        color: 'primary.main',
-                    }
-                }}
-                onClick={() => {
-                    if (product.slug.current !== "coming-soon") {
-                        saveUser((prevUser) => {
-                            const newUser = { ...prevUser }
-                            if (newUser.cartItems.find(item => item.slug.current === product.slug.current)) { //item already exists
-                                newUser.cartItems = newUser.cartItems.map(item => {
-                                    if (item.slug.current === product.slug.current) {
-                                        return { ...item, qty: item.qty + 1 }
-                                    }
-                                    else {
-                                        return item
-                                    }
-                                })
-                            } else {    //item doesn't exist
-                                newUser.cartItems.push({ ...product, qty: 1 })
-                            }
-                            return newUser;
-                        })
-                    }
-                }}
-            >Add to Cart</Button>
+            <AddToCartButton product={product}/>
             <Typography textAlign='center'>{product.title}</Typography>
             <Typography textAlign='center'>{`$${product.price}`}</Typography>
         </Box>

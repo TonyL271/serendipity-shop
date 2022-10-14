@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import client, { urlFor } from '../../lib/client'
 import { Box, Typography, Button, Select, MenuItem, FormControl, Rating } from '@mui/material'
 import { useState } from 'react'
-import { ImagePreview, ProductReview } from '../../src/components'
+import { AddToCartButton, ImagePreview, ProductReview } from '../../src/components'
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 const Post = ({ product }) => {
@@ -58,7 +58,7 @@ const Post = ({ product }) => {
                                         ))}
                                     </Select>
                                 </Box>
-                                <Button id="add-to-cart" sx={{ bgcolor: 'primary.main', color: 'primary.light', width: '15rem', }}>Add to Cart</Button>
+                                <AddToCartButton product={product}/>
                             </FormControl>
                         </Box>
                     </Box>
