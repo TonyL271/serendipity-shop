@@ -53,7 +53,7 @@ const Cart = () => {
                                         }} />
                                     <Typography textAlign={'center'} px="1rem">{item.title}</Typography>
                                     <Typography px="1rem">{item.qty}</Typography>
-                                    <Typography px="1rem">{item.price * item.qty.toFixed(2)}</Typography>
+                                    <Typography px="1rem">{(item.price * item.qty).toFixed(2)}</Typography>
                                 </Box>
                             ))
                         }

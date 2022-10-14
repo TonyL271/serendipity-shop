@@ -2,13 +2,15 @@ import { useRouter } from 'next/router'
 import client, { urlFor } from '../../lib/client'
 import { Box, Typography, Button, Select, MenuItem, FormControl, Rating } from '@mui/material'
 import { useState } from 'react'
-import { AddToCartButton, ImagePreview, ProductReview } from '../../src/components'
+import { AddToCartButton, CustomAlert, ImagePreview, ProductReview } from '../../src/components'
 import WarningAmberIcon from '@mui/icons-material/WarningAmber';
 
 const Post = ({ product }) => {
     const router = useRouter()
     const { slug } = router.query
     const [quantity, setQuantity] = useState(1)
+    const [showAlert, setShowAlert] = useState(false)
+
 
     return (
         <Box sx={{ width: '100vw', minHeight: '100vh', bgcolor: 'primary.background', }}>
@@ -16,8 +18,8 @@ const Post = ({ product }) => {
             <Typography py="1rem" variant="h2" align='center'>{product.title}</Typography>
             <Box
                 sx={{
-                    width: {mobile:'100%',laptop:'80%'},
-                    maxWidth:'1200px',
+                    width: { mobile: '100%', laptop: '80%' },
+                    maxWidth: '1200px',
                     display: 'grid',
                     gridTemplateColumns: { mobile: '1fr', laptop: '1fr 1fr' },
                     mx: 'auto',
@@ -58,7 +60,8 @@ const Post = ({ product }) => {
                                         ))}
                                     </Select>
                                 </Box>
-                                <AddToCartButton product={product}/>
+                                <CustomAlert showAlert={showAlert} message={`${product.title} has been added to cart`} />
+                                <AddToCartButton setShowAlert={setShowAlert} product={product} />
                             </FormControl>
                         </Box>
                     </Box>

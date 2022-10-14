@@ -2,9 +2,10 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Box, Button, Typography } from '@mui/material'
 import { urlFor } from '../../lib/client'
 import Link from 'next/link'
-import {AddToCartButton} from './'
+import { AddToCartButton } from './'
 
-const ProductCard = ({ product }) => {
+
+const ProductCard = ({ product, setShowAlert }) => {
 
     const [showIndex, setShowIndex] = useState(0)
     const [intervalId, setIntervalId] = useState(null)
@@ -55,10 +56,12 @@ const ProductCard = ({ product }) => {
                     }}
                 />
             </Link>
-            <AddToCartButton product={product}/>
+            <AddToCartButton setShowAlert={setShowAlert} product={product} />
             <Typography textAlign='center'>{product.title}</Typography>
             <Typography textAlign='center'>{`$${product.price}`}</Typography>
+
         </Box>
+
     )
 }
 

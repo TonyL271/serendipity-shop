@@ -8,3 +8,4 @@ export {default as ProductReview} from './ProductReview';
 export {default as Cart} from './Cart';
 export {default as Checkout} from './Checkout';
 export {default as AddToCartButton} from './AddToCartButton';
+export {default as CustomAlert} from './CustomAlert';

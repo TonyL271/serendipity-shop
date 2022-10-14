@@ -3,7 +3,7 @@ import { useContext } from "react"
 import UserContext from '../UserContext'
 
 
-const AddToCartButton = ({ product }) => {
+const AddToCartButton = ({ product,setShowAlert }) => {
 
     const { user, saveUser } = useContext(UserContext)
 
@@ -36,6 +36,10 @@ const AddToCartButton = ({ product }) => {
                         } else {    //item doesn't exist
                             newUser.cartItems.push({ ...product, qty: 1 })
                         }
+                        setShowAlert(true);
+                        setTimeout(() => {
+                            setShowAlert(false);
+                        }, 1000)
                         return newUser;
                     })
                 }

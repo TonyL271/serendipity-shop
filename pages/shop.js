@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Box } from '@mui/material'
 import client from '../lib/client'
 import ProductCard from '../src/components/ProductCard'
+import { CustomAlert } from '../src/components'
 
 const shop = ({ products, testProducts }) => {
+  const [showAlert, setShowAlert] = useState(false)
 
   return (
     <Box sx={{
@@ -28,7 +30,7 @@ const shop = ({ products, testProducts }) => {
           }}
         >
           {products.map(product => (
-            <ProductCard key={product._id} product={product} />
+            <ProductCard key={product._id} product={product} setShowAlert={setShowAlert} />
           ))}
           {Array(20 - products.length).fill(0).map((num, index) => (
             <ProductCard key={index} product={testProducts[0]} />
@@ -36,6 +38,7 @@ const shop = ({ products, testProducts }) => {
 
         </Box>
       </Box>
+      <CustomAlert message="Added to cart" showAlert={showAlert} />
     </Box>
   )
 }

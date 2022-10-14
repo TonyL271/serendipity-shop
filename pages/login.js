@@ -18,8 +18,9 @@ const login = () => {
     }}>
       <Box
         sx={{
-          width: '60%',
+          width: '25%',
           height: '50%',
+          py:'2rem',
           mx: 'auto',
           display: 'flex',
           alignItems: 'center',
